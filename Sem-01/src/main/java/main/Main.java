@@ -21,7 +21,7 @@ public class Main {
     int b = 3;
 
     // Static methods can't access non-static fields
-    static void printA(){
+    public static void printA(){
         System.out.println(a);
     }
 
