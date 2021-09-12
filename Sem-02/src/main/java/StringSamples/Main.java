@@ -1,3 +1,7 @@
+package StringSamples;
+
+import StringSamples.DefinitelyNotString;
+
 import java.util.Scanner;
 
 public class Main {

@@ -1,3 +1,5 @@
+package StringSamples;
+
 public class DefinitelyNotString {
     @Override
     public String toString() {

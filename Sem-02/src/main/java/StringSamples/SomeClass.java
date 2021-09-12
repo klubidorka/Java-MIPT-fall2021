@@ -1,3 +1,5 @@
+package StringSamples;
+
 import java.io.IOException;
 
 public class SomeClass implements Appendable {
