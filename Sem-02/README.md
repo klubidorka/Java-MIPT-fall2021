@@ -5,6 +5,8 @@
 - Collections Framework
 - Практика
   
+[Ссылка на презентацию](https://docs.google.com/presentation/d/1A9Ba3GaIQiAo-lXz6JePsUUl0eThiapDMAPqZCz9Ubk/edit#slide=id.gebdc2a8c5b_1_25) (доступна в домене @phystech.edu)   
+
 Дополнительную информацию по коллекциям можно подчерпнуть из [туториала Oracle](https://docs.oracle.com/javase/tutorial/collections/index.html)
 
 ## Практика по строкам
