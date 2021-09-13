@@ -1,6 +1,13 @@
-# Problems for seminar #2 (leetcode)
+# Семинар #2
 
-## Strings
+План занятия:  
+- String
+- Collections Framework
+- Практика
+  
+Дополнительную информацию по коллекциям можно подчерпнуть из [туториала Oracle](https://docs.oracle.com/javase/tutorial/collections/index.html)
+
+## Практика по строкам
 
 ### Iterate through strings
 https://leetcode.com/problems/split-a-string-in-balanced-strings/
@@ -20,7 +27,7 @@ https://leetcode.com/problems/first-unique-character-in-a-string/
 ### GCD (harder)
 https://leetcode.com/problems/greatest-common-divisor-of-strings/
 
-## Arrays
+## Практика по коллекциям
 
 ### Running sum
 https://leetcode.com/problems/running-sum-of-1d-array/
