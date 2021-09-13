@@ -3,12 +3,13 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello");
+        arrays();
     }
     // sout + enter -> System.out.println();
     // souf + enter -> System.out.printf("");
@@ -97,13 +98,30 @@ public class Main {
     static void inputScanner(){
         Scanner scn = new Scanner(System.in);
         int a = scn.nextInt();
-        scn.close();
+        scn.close(); // don't forget to close Scanner and release resources
     }
 
-    static void inputBufferedReader() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int a = Integer.parseInt(br.readLine());
-        String b = br.readLine();
-        br.close();
+    static void inputBufferedReader() {
+        // try-with-resources releases resources automatically
+        // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+            int a = Integer.parseInt(br.readLine());
+            String b = br.readLine();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void arrays(){
+        int[] array; // declare array but don't initialize
+        array = new int[10]; // init array with default value 0
+        System.out.println(Arrays.toString(array));
+        array[1] = 123;
+        array[array.length - 1] = 43;
+        System.out.println(Arrays.toString(array));
+
+        long[][] twoDimArray = new long[2][]; // example of non-rectangular array
+        twoDimArray[0] = new long[10];
+        twoDimArray[1] = new long[]{1, 2, 3, 4, 5}; // initializer list
     }
 }
