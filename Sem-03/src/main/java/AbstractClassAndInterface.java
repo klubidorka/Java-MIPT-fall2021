@@ -14,6 +14,12 @@ public class AbstractClassAndInterface {
         }
     }
 
+    void print(List<Integer> list){
+        for (Integer it : list){
+            System.out.println(it);
+        }
+    }
+
     /**
      * If we want to create instance of abstract class, we need to implement all abstract methods
      */
@@ -59,7 +65,7 @@ abstract class AbstractClass {
 }
 
 interface Horse {
-    public static final String nameString = "My name is";
+    public static final String nameString = "My name is ";
 
     // All methods are public abstract by default
     // abstract final is illegal

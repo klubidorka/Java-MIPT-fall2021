@@ -30,7 +30,7 @@ class Test{
     public static void main(String[] args) {
         ObjectSubclass test = new ObjectSubclass();
         System.out.println(test);
-        System.out.println(test.getClass());
+//        System.out.println(test.getClass());
     }
 }
 

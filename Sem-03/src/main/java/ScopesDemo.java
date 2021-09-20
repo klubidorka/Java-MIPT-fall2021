@@ -57,6 +57,7 @@ class StaticDemo {
     static private int numberPrivate;
     static protected int numberProtected;
     static public int numberPublic;
+    int value;
 
     static void methodDefault() {
     }
