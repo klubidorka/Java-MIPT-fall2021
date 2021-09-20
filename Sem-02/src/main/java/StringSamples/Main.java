@@ -4,13 +4,13 @@ import StringSamples.DefinitelyNotString;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Object {
     public static void main(String[] args) {
 //        StringDemo();
 //        Concatenation();
-        CompareStrings();
+//        CompareStrings();
 //        Transformations();
-//        SpeedTest();
+        SpeedTest();
     }
 
     static void StringDemo(){
@@ -37,9 +37,10 @@ public class Main {
         String b = "abc";
         System.out.println("a == b: " + (a == b));
         System.out.println("a equals b: " + a.equals(b));
+
         String a1 = new String("abc");
         String b1 = new String("abc");
-        System.out.println("a1 == b1: " + (a1 == b1));
+        System.out.println("a1 == b1: " + (a == b1));
         System.out.println("a1 equals b1: " + a1.equals(b1));
     }
 
