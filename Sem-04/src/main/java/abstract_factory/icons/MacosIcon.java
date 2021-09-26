@@ -1,4 +1,4 @@
-package icons;
+package abstract_factory.icons;
 
 public class MacosIcon implements Icon {
     @Override

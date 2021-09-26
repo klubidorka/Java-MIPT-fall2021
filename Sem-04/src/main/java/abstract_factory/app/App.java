@@ -1,8 +1,8 @@
-package app;
+package abstract_factory.app;
 
-import buttons.Button;
-import factories.GUIFactory;
-import icons.Icon;
+import abstract_factory.buttons.Button;
+import abstract_factory.factories.GUIFactory;
+import abstract_factory.icons.Icon;
 
 public class App {
     private Button button;

@@ -1,4 +1,4 @@
-package buttons;
+package abstract_factory.buttons;
 
 public class WindowsButton implements Button {
     @Override

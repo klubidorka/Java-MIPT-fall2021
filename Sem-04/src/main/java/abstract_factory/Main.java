@@ -1,7 +1,9 @@
-import app.App;
-import factories.GUIFactory;
-import factories.MacosGUIFactory;
-import factories.WindowsGUIFactory;
+package abstract_factory;
+
+import abstract_factory.app.App;
+import abstract_factory.factories.GUIFactory;
+import abstract_factory.factories.MacosGUIFactory;
+import abstract_factory.factories.WindowsGUIFactory;
 
 public class Main {
 
