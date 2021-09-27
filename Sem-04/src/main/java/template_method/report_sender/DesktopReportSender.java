@@ -5,8 +5,8 @@ import java.util.Random;
 import static template_method.report_sender.LatencySimulator.simulateDeviceLatency;
 import static template_method.report_sender.LatencySimulator.simulateNetworkLatency;
 
-public class WebReportSender extends ReportSender {
-    public WebReportSender(String login, String password) {
+public class DesktopReportSender extends ReportSender {
+    public DesktopReportSender(String login, String password) {
         super(login, password);
     }
 
