@@ -5,8 +5,8 @@ import abstract_factory.factories.GUIFactory;
 import abstract_factory.icons.Icon;
 
 public class App {
-    private Button button;
-    private Icon icon;
+    private final Button button;
+    private final Icon icon;
 
     public App(GUIFactory guiFactory) {
         button = guiFactory.createButton();
