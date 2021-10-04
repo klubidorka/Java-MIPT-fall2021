@@ -14,6 +14,12 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class AppTest {
+
+    @Test
+    void helloWorldTest() {
+        App.main(new String[]{});
+    }
+
     @Test
     void helloTest() {
         Assertions.assertThat(2 + 2).isEqualTo(4);
@@ -36,17 +42,27 @@ public class AppTest {
     }
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         System.out.println("Testing started");
     }
 
+    @AfterAll
+    static void Finalize() {
+        System.out.println("Testing finished");
+    }
+
     @BeforeEach
-    void before(){
+    void before() {
         System.out.println("This method is called before each test");
     }
 
+    @AfterEach
+    void after() {
+        System.out.println("This method is called after each test");
+    }
+
     @Test
-    void exceptionTest(){
+    void exceptionTest() {
         assertThatThrownBy(() -> {
             List<String> list = Arrays.asList("String one", "String two");
             list.get(2);
@@ -54,19 +70,8 @@ public class AppTest {
                 .hasMessageContaining("Index 2 out of bounds for length 2");
     }
 
-
     @RepeatedTest(5)
     void repeatedTest() {
         System.out.println("You will see this message five times");
-    }
-
-    @AfterEach
-    void after(){
-        System.out.println("This method is called after each test");
-    }
-
-    @AfterAll
-    static void Finalize(){
-        System.out.println("Testing finished");
     }
 }
