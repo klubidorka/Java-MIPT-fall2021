@@ -1,20 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+package statements;
+
+import java.sql.*;
 import java.util.Scanner;
 
 
 /**
- * То же самое, но данные вводятся пользователем
- * 1) Создаем таблицу
- * 2) Добавляем в таблицу пользовательские данные
- * 3) Выгружаем все данные из таблицы
- * <p>
- * Что меняется? Где может возникнуть проблема?
+ * Вводим пользовательские данные при помощи Prepared Statement и защищаемся от инъекций
  */
-public class JDBCDemo2 {
+public class JDBCDemo3 {
     final static String pathToDb = "./sqlite/sem07testDB.sqlite";
 
     public static void main(String[] args) {
@@ -35,7 +28,10 @@ public class JDBCDemo2 {
             statement.executeUpdate("insert into Users values(2, 'Roman')");
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            statement.executeUpdate(String.format("insert into Users values(3, '%s')", name));
+            try (PreparedStatement preparedStatement = connection.prepareStatement("insert into Users values(3, ?)")) {
+                preparedStatement.setString(1, name);
+                preparedStatement.executeUpdate();
+            }
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
             ResultSet rs = statement.executeQuery("select * from Users");
