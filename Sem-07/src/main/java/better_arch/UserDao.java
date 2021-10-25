@@ -9,8 +9,4 @@ public interface UserDao {
     Set<User> getAllUsers() throws SQLException;
 
     boolean insertUser(User user) throws SQLException;
-
-//    boolean updateUser();
-//
-//    boolean deleteUser();
 }

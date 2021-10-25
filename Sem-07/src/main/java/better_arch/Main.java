@@ -3,6 +3,10 @@ package better_arch;
 import java.sql.SQLException;
 import java.util.Set;
 
+
+/**
+ * Contains business logic
+ */
 public class Main {
     public static void main(String[] args) throws SQLException {
         UserDao userDao = new UserDaoImpl();

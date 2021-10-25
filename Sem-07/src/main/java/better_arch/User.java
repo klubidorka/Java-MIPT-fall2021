@@ -1,5 +1,9 @@
 package better_arch;
 
+
+/**
+ * Encapsulates information about user
+ */
 public class User {
     private static int nextPossibleId = 0;
     private Integer id;

@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Prepares database and provides connection to DB
+ */
 public class DbConnectionFactory {
     private final static String pathToDb = "./sqlite/sem07testDB.sqlite";
     private static final HikariConfig config = new HikariConfig();

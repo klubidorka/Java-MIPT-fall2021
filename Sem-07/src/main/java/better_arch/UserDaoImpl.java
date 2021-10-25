@@ -4,6 +4,10 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * Implementation of UserDao that uses the database configured and managed by DbConnectionFactory
+ */
 public class UserDaoImpl implements UserDao {
     @Override
     public User getUserById(int id) throws SQLException {
@@ -40,23 +44,12 @@ public class UserDaoImpl implements UserDao {
             ps.setInt(1, user.getId());
             ps.setString(2, user.getName());
             ps.setInt(3, user.getAge());
-            int i = ps.executeUpdate();
-
-            if (i == 1) {
-                return true;
-            }
-
+            return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
         return false;
     }
-
-//    @Override
-//    public boolean deleteUser() {
-//        return false;
-//    }
 
     private User extractUserFromResultSet(ResultSet rs) throws SQLException {
         User user = new User();
