@@ -25,10 +25,11 @@ public class JDBCDemo1 {
             statement.executeUpdate("insert into Users values(1, 'Egor')");
             statement.executeUpdate("insert into Users values(2, 'Roman')");
 
-            ResultSet rs = statement.executeQuery("select * from Users");
-            while (rs.next()) {
-                System.out.println("name = " + rs.getString("name"));
-                System.out.println("id = " + rs.getInt("id"));
+            try (ResultSet rs = statement.executeQuery("select * from Users")) {
+                while (rs.next()) {
+                    System.out.println("name = " + rs.getString("name"));
+                    System.out.println("id = " + rs.getInt("id"));
+                }
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());

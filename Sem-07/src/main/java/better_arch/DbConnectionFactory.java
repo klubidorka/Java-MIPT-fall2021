@@ -33,7 +33,7 @@ public class DbConnectionFactory {
         Connection connection = getConnection();
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("drop table if exists users");
-            statement.executeUpdate("create table Users (id integer, name varchar(200), age integer )");
+            statement.executeUpdate("create table Users (id integer, name varchar(200), age integer)");
         }
     }
 
