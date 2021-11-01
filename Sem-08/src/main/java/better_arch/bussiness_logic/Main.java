@@ -42,8 +42,14 @@ public class Main {
         loader.buildUsersTable();
     }
 
+    private static void buildChart() throws SQLException, IOException {
+        ChartBuilder chartBuilder = new ChartBuilder(userDao);
+        chartBuilder.createBarChart();
+    }
+
     public static void main(String[] args) throws SQLException, IOException {
         prepareDB();
         buildTable();
+        buildChart();
     }
 }

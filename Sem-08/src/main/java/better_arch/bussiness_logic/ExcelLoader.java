@@ -85,7 +85,6 @@ public class ExcelLoader {
         for (User user : users) {
             rawData.add(new String[]{user.getName(), user.getAge().toString()});
         }
-
         buildExcelTable("Our users", new String[]{"Name", "Age"}, rawData, OUTPUT_XLS_PATH + "users.xlsx");
     }
 }
