@@ -1,12 +1,24 @@
 package better_arch.bussiness_logic;
 
-import better_arch.db_connection.User;
 import better_arch.db_connection.UserDao;
 import better_arch.db_connection.UserDaoImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
+
+class A {
+    static {
+        System.out.println("Static");
+    }
+
+    static void foo() {
+        System.out.println("foo");
+    }
+    A() {
+        System.out.println("constructor");
+    }
+}
 
 /**
  * Contains business logic

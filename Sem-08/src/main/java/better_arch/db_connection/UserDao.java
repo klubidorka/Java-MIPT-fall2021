@@ -1,5 +1,7 @@
 package better_arch.db_connection;
 
+import better_arch.bussiness_logic.User;
+
 import java.sql.SQLException;
 import java.util.Set;
 

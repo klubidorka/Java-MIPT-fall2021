@@ -1,6 +1,5 @@
 package better_arch.bussiness_logic;
 
-import better_arch.db_connection.User;
 import better_arch.db_connection.UserDao;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;

@@ -2,7 +2,6 @@ package better_arch.bussiness_logic;
 
 import java.awt.Font;
 
-import better_arch.db_connection.User;
 import better_arch.db_connection.UserDao;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;

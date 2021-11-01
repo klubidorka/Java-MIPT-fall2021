@@ -1,4 +1,4 @@
-package better_arch.db_connection;
+package better_arch.bussiness_logic;
 
 
 /**
@@ -10,7 +10,7 @@ public class User {
     private String name;
     private Integer age;
 
-    User() {
+    public User() {
     }
 
     public User(String name, Integer age) {
