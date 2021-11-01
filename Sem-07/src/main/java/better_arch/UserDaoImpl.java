@@ -1,4 +1,4 @@
-package better_arch;
+package better_arch.db_connection;
 
 import java.sql.*;
 import java.util.HashSet;
@@ -11,9 +11,8 @@ import java.util.Set;
 public class UserDaoImpl implements UserDao {
     @Override
     public User getUserById(int id) throws SQLException {
-        Connection connection = DbConnectionFactory.getConnection();
-
-        try (Statement stmt = connection.createStatement()) {
+        try (Connection connection = DbConnectionFactory.getConnection();
+             Statement stmt = connection.createStatement()) {
             ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE id=" + id);
             if (rs.next()) {
                 return extractUserFromResultSet(rs);
@@ -24,8 +23,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Set<User> getAllUsers() throws SQLException {
-        Connection connection = DbConnectionFactory.getConnection();
-        try (Statement stmt = connection.createStatement()) {
+        try (Connection connection = DbConnectionFactory.getConnection();
+             Statement stmt = connection.createStatement()) {
             ResultSet rs = stmt.executeQuery("SELECT * FROM users");
             Set<User> users = new HashSet<>();
             while (rs.next()) {
@@ -38,9 +37,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean insertUser(User user) throws SQLException {
-        Connection connection = DbConnectionFactory.getConnection();
-        try (PreparedStatement ps = connection.prepareStatement("INSERT INTO users VALUES (?, ?, ?)")) {
+    public boolean insertUser(User user) {
+        try (Connection connection = DbConnectionFactory.getConnection();
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO users VALUES (?, ?, ?)")) {
             ps.setInt(1, user.getId());
             ps.setString(2, user.getName());
             ps.setInt(3, user.getAge());
@@ -50,6 +49,7 @@ public class UserDaoImpl implements UserDao {
         }
         return false;
     }
+
 
     private User extractUserFromResultSet(ResultSet rs) throws SQLException {
         User user = new User();
