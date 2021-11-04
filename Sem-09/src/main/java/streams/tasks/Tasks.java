@@ -2,10 +2,7 @@ package streams.tasks;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.lang.Math.max;
 
 
 /**
@@ -18,7 +15,7 @@ public class Tasks<T> {
      * Return amount of elements equal to pattern
      * For example, task1(Stream.of("a", "a", "b"), "a") = 2
      */
-    public long task1(Stream<T> stream, T pattern){
+    public long task1(Stream<T> stream, T pattern) {
         // YOUR CODE HERE
         return 0;
     }
@@ -26,7 +23,7 @@ public class Tasks<T> {
     /**
      * Return last element of collection or null if collection is empty
      */
-    public T task2(Collection<T> collection){
+    public T task2(Collection<T> collection) {
         // YOUR CODE HERE
         return null;
     }
@@ -35,7 +32,7 @@ public class Tasks<T> {
      * Return list of two elements starting from the second.
      * It is guaranteed that size of the stream is greater than two
      */
-    public List<T> task3(Stream<T> stream){
+    public List<T> task3(Stream<T> stream) {
         // YOUR CODE HERE
         return null;
     }
@@ -43,7 +40,7 @@ public class Tasks<T> {
     /**
      * Return true if at least one element equal to "pattern" can be found in stream, else return false
      */
-    public boolean task4(Stream<T> stream, T pattern){
+    public boolean task4(Stream<T> stream, T pattern) {
         // YOUR CODE HERE
         return false;
     }
@@ -51,7 +48,7 @@ public class Tasks<T> {
     /**
      * Return sorted list of stream elements without duplicates
      */
-    public List<T> task5(Stream<T> stream){
+    public List<T> task5(Stream<T> stream) {
         // YOUR CODE HERE
         return null;
     }
