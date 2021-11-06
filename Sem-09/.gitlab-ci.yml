@@ -1,4 +1,8 @@
-image: maven:3.8.3-eclipse-temurin-8
+image: ubuntu
+
+before_script:
+  - apt update
+  - apt install maven -y
 
 cache:
   paths:
@@ -21,4 +25,3 @@ test:
     paths:
     - target/*.jar
     expire_in: 1 hour
-
