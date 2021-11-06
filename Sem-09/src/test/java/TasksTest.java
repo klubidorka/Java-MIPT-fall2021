@@ -1,6 +1,3 @@
-
-
-
 import streams.tasks.Tasks;
 
 import java.util.Arrays;
@@ -11,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TasksTester {
+public class TasksTest {
     @Test
     void task1() {
         Tasks<String> stringTask = new Tasks<>();
