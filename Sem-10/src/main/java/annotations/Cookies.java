@@ -5,11 +5,11 @@ public class Cookies {
 
     @StartObject
     public void createCookie() {
-        //бизнес логика
+        // Бизнес-логика
     }
 
     @StopObject
     public void stopCookie() {
-        //бизнес логика
+        // Бизнес-логика
     }
 }
