@@ -18,3 +18,4 @@
 * Семинар #7. JDBC
 * Семинар #8. Работа с таблицами и графиками. Разбор Quiz #1
 * Семинар #9. Streams API, Gitlab CI
+* Семинар #10. Reflection API & Annotations
