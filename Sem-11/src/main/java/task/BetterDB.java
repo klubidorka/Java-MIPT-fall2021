@@ -32,11 +32,11 @@ public class BetterDB implements ToyDB {
 
     @Override
     public synchronized void write(int writerId) {
-        try {
-            while (readers > 0) {
+        while (readers > 0) {
+            try {
                 this.wait();
+            } catch (InterruptedException ignored) {
             }
-        } catch (InterruptedException ignored) {
         }
 
         System.out.printf("Writer %d started writing\n", writerId);
