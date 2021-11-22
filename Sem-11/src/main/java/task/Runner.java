@@ -1,5 +1,9 @@
 package task;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Runner {
     public static void main(String[] args) {
         try {
@@ -7,18 +11,20 @@ public class Runner {
         } catch (InterruptedException ignored){}
     }
 
-    private static void runDB(int readersAmount, int writersAmount, DB database) throws InterruptedException {
+    private static void runDB(int readersAmount, int writersAmount, ToyDB database) throws InterruptedException {
         assert readersAmount > 0;
         assert writersAmount > 0;
 
-        Thread[] threads = new Thread[readersAmount + writersAmount];
+        List<Thread> threads = new ArrayList<>(readersAmount + writersAmount);
 
         for (int i = 0; i < readersAmount; i++){
-            threads[i] = new Thread(new Reader(database, i));
+            threads.add(new Thread(new Reader(database, i)));
         }
         for (int i = readersAmount; i <  readersAmount + writersAmount; i++){
-            threads[i] = new Thread(new Writer(database, i));
+            threads.add(new Thread(new Writer(database, i)));
         }
+
+        Collections.shuffle(threads);
 
         for (Thread thread : threads){
             thread.start();

@@ -2,7 +2,7 @@ package task;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BetterDB implements DB {
+public class BetterDB implements ToyDB {
     long READ_TIME = 500; // milliseconds
     long WRITE_TIME = 1000; // milliseconds
 

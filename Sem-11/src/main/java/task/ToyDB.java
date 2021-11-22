@@ -1,6 +1,6 @@
 package task;
 
-public interface DB {
+public interface ToyDB {
     /**
      * Simulates reading process. Should be implemented in the way that many readers are able to read at the same time
      */
