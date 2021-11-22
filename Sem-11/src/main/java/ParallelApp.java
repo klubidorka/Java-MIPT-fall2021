@@ -1,41 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ParallelApp {
-    private static int[] prepareRandomArray() {
+    private static List<Integer> prepareRandomArray() {
         int N = 100_000_000;
-        int[] array = new int[N];
+        List<Integer> list = new ArrayList<>(N);
         Random random = new Random();
 
         for (int i = 0; i < N; i++) {
-            array[i] = random.nextInt(10) - 5;
+            list.add(random.nextInt(10) - 5);
         }
-        return array;
+        return list;
     }
 
-    private static void singleThreadCalculations(int[] array) {
-        int result = 0;
-
+    private static void singleThreadCalculations(List<Integer> list) {
         long start = System.currentTimeMillis();
-        for (int value : array) {
-            result += value;
-        }
+        int result = list.stream().mapToInt(x -> x).sum();
         long execTime = System.currentTimeMillis() - start;
-
         System.out.printf("Single thread. Sum = %d, execution time: %d ms.\n", result, execTime);
     }
 
-    private static void multiThreadCalculations(int threads, int[] array) throws InterruptedException {
+    private static void multiThreadCalculations(int threads, List<Integer> list) throws InterruptedException {
         assert threads > 1;
         long start = System.currentTimeMillis();
 
-        int sectorLength = array.length / threads;
+        int sectorLength = list.size() / threads;
         int sum = 0;
-        Worker[] workers = new Worker[threads];
+        List<Worker> workers = new ArrayList<>(threads);
 
         for (int i = 0; i < threads - 1; i++) {
-            workers[i] = new Worker(array, i * sectorLength, (i + 1) * sectorLength);
+            workers.add(new Worker(list, i * sectorLength, (i + 1) * sectorLength));
         }
-        workers[threads - 1] = new Worker(array, (threads - 1) * sectorLength, array.length);
+        workers.add(new Worker(list, (threads - 1) * sectorLength, list.size()));
 
         for (Worker worker : workers) {
             worker.start();
@@ -50,10 +47,10 @@ public class ParallelApp {
     }
 
     public static void main(String[] args) {
-        int[] array = prepareRandomArray();
-        singleThreadCalculations(array);
+        List<Integer> list = prepareRandomArray();
+        singleThreadCalculations(list);
         try {
-            multiThreadCalculations(8, array);
+            multiThreadCalculations(4, list);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -61,20 +58,20 @@ public class ParallelApp {
 }
 
 class Worker extends Thread {
-    private final int[] array;
+    private final List<Integer> list;
     private int partialSum = 0;
     private final int from;
     private final int to;
 
-    Worker(int[] array, int from, int to) {
-        this.array = array;
+    Worker(List<Integer> list, int from, int to) {
+        this.list = list;
         this.from = from;
         this.to = to;
     }
 
     public void run() {
         for (int i = from; i < to; i++) {
-            partialSum += array[i];
+            partialSum += list.get(i);
         }
     }
 
