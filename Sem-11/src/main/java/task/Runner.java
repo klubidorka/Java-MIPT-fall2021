@@ -7,7 +7,7 @@ public class Runner {
         } catch (InterruptedException ignored){}
     }
 
-    static void runDB(int readersAmount, int writersAmount, DB database) throws InterruptedException {
+    private static void runDB(int readersAmount, int writersAmount, DB database) throws InterruptedException {
         assert readersAmount > 0;
         assert writersAmount > 0;
 

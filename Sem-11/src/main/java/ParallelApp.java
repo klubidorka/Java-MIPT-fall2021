@@ -1,7 +1,7 @@
 import java.util.Random;
 
-public class ExampleCalculations {
-    private static int[] prepareArray() {
+public class ParallelApp {
+    private static int[] prepareRandomArray() {
         int N = 100_000_000;
         int[] array = new int[N];
         Random random = new Random();
@@ -12,7 +12,7 @@ public class ExampleCalculations {
         return array;
     }
 
-    public static void singleThreadCalc(int[] array) {
+    private static void singleThreadCalculations(int[] array) {
         int result = 0;
 
         long start = System.currentTimeMillis();
@@ -24,7 +24,7 @@ public class ExampleCalculations {
         System.out.printf("Single thread. Sum = %d, execution time: %d ms.\n", result, execTime);
     }
 
-    public static void multiThreadCalc(int threads, int[] array) throws InterruptedException {
+    private static void multiThreadCalculations(int threads, int[] array) throws InterruptedException {
         assert threads > 1;
         long start = System.currentTimeMillis();
 
@@ -50,10 +50,10 @@ public class ExampleCalculations {
     }
 
     public static void main(String[] args) {
-        int[] array = prepareArray();
-        singleThreadCalc(array);
+        int[] array = prepareRandomArray();
+        singleThreadCalculations(array);
         try {
-            multiThreadCalc(8, array);
+            multiThreadCalculations(8, array);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -78,7 +78,7 @@ class Worker extends Thread {
         }
     }
 
-    public int getPartialSum() {
+    int getPartialSum() {
         return partialSum;
     }
 }

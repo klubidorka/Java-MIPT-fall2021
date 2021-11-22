@@ -18,7 +18,8 @@ public class BetterDB implements DB {
         try {
             ThreadLocalRandom random = ThreadLocalRandom.current();
             Thread.sleep(random.nextLong(READ_TIME));
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
 
         synchronized (this) {
             readers--;
@@ -31,17 +32,19 @@ public class BetterDB implements DB {
 
     @Override
     public synchronized void write(int writerId) {
-        try{
-            while(readers > 0){
+        try {
+            while (readers > 0) {
                 this.wait();
             }
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
 
         System.out.printf("Writer %d started writing\n", writerId);
-        try{
+        try {
             ThreadLocalRandom random = ThreadLocalRandom.current();
             Thread.sleep(random.nextLong(WRITE_TIME));
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
 
         System.out.printf("Writer %d finished writing\n", writerId);
     }

@@ -1,12 +1,12 @@
 import java.util.stream.Stream;
 
-public class ProblemsWithShareState {
+public class ProblemsWithSharedState {
     public static void main(String[] args) throws InterruptedException {
         raceCondition();
         Reordering.main();
     }
 
-    public static void raceCondition() {
+    private static void raceCondition() {
         // OK
         Increment inc = new Increment();
         Stream.iterate(0, n -> n + 1).limit(10_000).forEach(n -> inc.increment());
@@ -29,12 +29,12 @@ class Increment {
 }
 
 class Reordering {
-    static int x = 0;
-    static int y = 0;
-    static int a = 0;
-    static int b = 0;
+    private static int x = 0;
+    private static int y = 0;
+    private static int a = 0;
+    private static int b = 0;
 
-    public static void main() throws InterruptedException {
+    static void main() throws InterruptedException {
         Thread one = new Thread(() -> {
             a = 1;
             x = b;
