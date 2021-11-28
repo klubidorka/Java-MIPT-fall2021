@@ -20,3 +20,4 @@
 * Семинар #9. Streams API, Gitlab CI
 * Семинар #10. Reflection API & Annotations
 * Семинар #11. Concurrency-1
+* Семинар #12. Concurrency-2
