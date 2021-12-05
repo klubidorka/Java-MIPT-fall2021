@@ -21,3 +21,4 @@
 * Семинар #10. Reflection API & Annotations
 * Семинар #11. Concurrency-1
 * Семинар #12. Concurrency-2
+* Семинар #13. Troubleshooting & GC advanced
