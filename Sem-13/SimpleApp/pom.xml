@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,27 +69,18 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>verify-style</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>libs/</classpathPrefix>
+                            <mainClass>
+                                org.mipt.ConcurrentDataStructuresDemo
+                            </mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>${checkstyle.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
