@@ -1,7 +1,7 @@
 # Семинар #14
 
 План занятия:  
-- Где применяется java
+- Сфера применения java
 - Вопросы с собеседований по java
 - Java puzzlers
 
@@ -10,4 +10,4 @@
 [Ссылка на видеозапись]()
 
 Полезные ссылки:  
-- [Статья с puzzlerы](https://habr.com/ru/company/jugru/blog/352438/)
+- [Статья про puzzler-ы](https://habr.com/ru/company/jugru/blog/352438/)
